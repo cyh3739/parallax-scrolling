@@ -16,10 +16,12 @@ MIT license - http://opensource.org/licenses/MIT
 <script src="./js/parallax.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.parallax').parallax({
-				speed:700,
-				pages:true
-		});
+	
+	   $('.parallax').parallax({
+		speed:700,
+		pages:true
+	   });
+	
 	});
 </script>
 ```
