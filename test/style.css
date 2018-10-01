@@ -1,0 +1,127 @@
+@charset "utf-8"; 
+/*
+@font-face{ 
+    font-family:'NanumGothic'; 
+    src:url('fonts/NanumGothicRegular.eot'); 
+    src:url('fonts/NanumGothicRegular.eot?#iefix') format(‘embedded-opentype’), 
+        url('fonts/NanumGothicRegular.woff') format(‘woff’), 
+        url('fonts/NanumGothicRegular.ttf') format('truetype'); 
+}
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0;
+	/*font-size: 100%;*/ font: inherit; vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+
+/*------ setting ------*/
+*{margin:0; padding:0; box-sizing:border-box;}
+html{overflow-x:hidden; overflow-y:scroll;}
+body{line-height:1; word-wrap:break-word; word-break:keep-all; }
+html, body{ height:100%; min-height:100%; }
+ul, ol{list-style:none; margin:0; padding:0;}
+img{border:none; outline:none; vertical-align:top; user-select:none;}
+a{text-decoration:none; outline:none;}
+b{font-weight:bold;}
+form{display:block;}
+input, label, span, select{display:inline-block;}
+/*input, select{vertical-align: middle;}*/
+/*------ [END] ------*/
+
+
+
+ /*-------- 자주쓰이는 CSS 패턴 --------*/
+.mg_none{margin:0;}
+.pd_none{padding:0;}
+
+.pd_none{padding:0;}
+.pd_l_none{padding-left:0;}
+.pd_r_none{padding-right:0;}
+.pd_all_none>*{padding:0;}
+
+/*float*/
+.float_left{float:left;}
+.float_right{float:right;}
+.clear:after{content:''; width:0; height:0; display:block; clear:both;}
+
+/*text-align*/
+.text_center{text-align:center;} 
+.text_left{text-align:left;}
+.text_right{text-align: right;}
+
+/*grid*/
+.float_grid>*{float:left; list-style:none; padding:0; margin:0;}
+.float_grid:after{content:''; display:block; clear:both; width:0; height:0;}
+
+.inline_grid{font-size:0; list-style:none; padding:0; margin:0;}
+.inline_grid>*{display:inline-block; *display:inline; zoom:1; font-size:16px; vertical-align:top;}
+
+/*vertical*/
+.vertical_middle:before{content:''; width:0; height:100%; display:inline-block; vertical-align:middle; margin-left:-4px;}
+.vertical_middle>*{display:inline-block; vertical-align: middle;}
+
+/*display_table*/
+.display_table{display:table; text-align:center;}
+.display_table>*{display:table-cell; vertical-align:middle;}
+/*-------- [END] --------*/
+
+
+
+/*------ common_module ------*/
+/*------ [END] ------*/
+
+
+
+/*------ common_layout ------*/
+/*init*/
+html, body{width:100%; height:100%; position:relative; overflow:hidden; }
+section{width:100%; height:100%; position:absolute; left:0; }
+
+/*animation*/
+.slideUp{top:-100%; z-index:0;}
+.show{top:0; z-index:7;}
+.slideDown{top:100%; z-index:0;}
+
+/*page Navi*/
+.pages{position:absolute; right:30px; top:50%; transform:translateY(-50%); z-index:9;}
+.pages li{background:#fff; width:15px; height:15px; border-radius:13px; margin:10px 0; cursor:pointer;}
+.pages li.active{background:#333;}
+
+
+
+
+/*이미지 적용*/
+section{background-position:0 0; background-size:cover; background-repeat:no-repeat; background-attachment:fixed;}
+section:nth-of-type(1){background-image:url('https://www.cincinnatussl.com/wp-content/plugins/page-layout-builder/images/bg/geometricBGs43.jpg'); }
+section:nth-of-type(2){background-image:url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/PZSxGIZ/cinematic-bg-3-loopable-background_nl6buhlfg__F0000.png');}
+section:nth-of-type(3){background-image:url('http://klinehill.com/wp-content/uploads/2016/04/bg-9-full.jpg');}
+section:nth-of-type(4){background-image:url('https://centangle.com/wp-content/uploads/2017/10/futuristic-polygon-bg.png');}
+section:nth-of-type(5){background-image:url('https://www.cincinnatussl.com/wp-content/plugins/page-layout-builder/images/bg/geometricBGs43.jpg'); }
+section:nth-of-type(6){background-image:url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/PZSxGIZ/cinematic-bg-3-loopable-background_nl6buhlfg__F0000.png');}
+section:nth-of-type(7){background-image:url('http://klinehill.com/wp-content/uploads/2016/04/bg-9-full.jpg');}
+section:nth-of-type(8){background-image:url('https://centangle.com/wp-content/uploads/2017/10/futuristic-polygon-bg.png');}
+/*------ [END] ------*/
+
+
+
+/*------ pages ------*/
+/*------ [END] ------*/
+

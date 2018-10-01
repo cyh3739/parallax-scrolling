@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0, user-scalable=no">
+	
+	<title>페럴렉스</title>
+	<link rel="stylesheet" href="./style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./mousewheel.min.js"></script>
+	
+	<style>  p{position:absolute; top:50%; left:50%; z-index:9; color:#fff; transform:translate(-50%;); font-size:37px;}  </style>
+	
+</head>
+<body>
+    
+		<section class="show"><p>0</p></section>
+		<section class="slideDown"><p>1</p></section>
+		<section class="slideDown"><p>2</p></section>
+		<section class="slideDown"><p>3</p></section>
+		<section class="slideDown"><p>4</p></section>
+		<section class="slideDown"><p>5</p></section>
+		<section class="slideDown"><p>6</p></section>
+		<section class="slideDown"><p>7</p></section>
+		
+		<!--네비게이션-->
+		<ul class="pages"></ul>
+	
+	
+<script>
+//    (function($) {
+//        $.fn.test = function(op) {
+//            return this.each(function() {
+//                var _this = $(this);
+//            });
+//        };
+//    })(jQuery);
+    
+	$(function(){
+		//=== 셋팅 변수 ===
+		var aniSpeed = 0.7; //페이지 변환 속도
+				
+		
+		//=== 마우스휠 이벤트 ===
+		var mouseWheelEvent = true;
+		$(document).on('mousewheel DOMMouseScroll', function(event, delta){
+			if(mouseWheelEvent == true){
+                if(delta>0){ pageMoveAction('down'); }
+                else{ pageMoveAction('up'); }
+                //현재페이지 표시
+                currentPage();
+			}	
+		});
+        
+        
+        //=== 모바일 스와이프 기능 ===
+        var swipeEvent = true;
+        var swipeWidth = 75;  //Setting
+        var touchstartY = 0;
+        var touchDeltaY = 0;
+        $(document).bind('touchstart', function(e){
+            touchstartY = e.targetTouches[0].pageY;
+            $(this).bind('touchmove', function(e){ touchDeltaY = e.targetTouches[0].pageY - touchstartY; });
+        }).bind('touchend',function(){
+            if(swipeEvent == true){
+              if(Math.abs(touchDeltaY)>=swipeWidth){
+                   if(touchDeltaY>0){pageMoveAction('down'); }
+                   else{ pageMoveAction('up'); }
+                   touchDeltaY = 0;
+                   currentPage(); //현재페이지 표시
+              }
+            }
+        });
+        
+        
+        
+        
+        
+		//=== 페이지 이동 작업 ===
+		function pageMoveAction(index){
+            //애니메이션 - (페이지 전환 효과)
+            switch(index){
+                case 'up': 
+                    if($('.show').next().is('section')){ $('.show').attr('class','slideUp').next('section').attr('class','show'); }
+                break;
+                case 'down': 
+                    if($('.show').prev().is('section')){ $('.show').attr('class','slideDown').prev('section').attr('class','show'); }	
+                break;
+                case undefined: break;    
+            }
+            //딜레이 - (페이지 전환이 완료될때까지 이벤트 작동 정지)
+			mouseWheelEvent = false;
+            swipeEvent = false;
+            var setTime = setTimeout(function(){ 
+                mouseWheelEvent = true;
+                swipeEvent = true;
+                clearTimeout(setTime);
+            }, aniSpeed*1000);
+		}
+		
+		
+		
+		//=== 페이지 셋팅 ===
+		var pages = '';
+		$('section').each(function(i){ pages += '<li></li>'; $(this).css({'transition':'all '+aniSpeed+'s'});});
+		$('.pages').html(pages);
+		$('.pages li:first-child').addClass('active');
+		//페이지 클릭
+		var $sct = $('section');
+		$('.pages li').click(function(){
+			pageMoveAction();
+			$('.pages li').removeClass('active');
+			$(this).addClass('active');
+			
+			var index = $(this).index();
+			$sct.eq(index).nextAll('section').attr('class','slideDown');
+			$sct.eq(index).prevAll('section').attr('class','slideUp');
+			$sct.eq(index).attr('class','show');
+		});
+		//현재페이지 표시
+		function currentPage(){
+			$('section').each(function(i){ 
+				var has = $(this).hasClass('show');
+				if(has){ 
+					$('.pages li').removeClass('active').eq(i).addClass('active');
+					return false;
+				}
+			});
+		}
+        
+		
+        
+        
+
+	});
+</script>
+</body>
+</html>
