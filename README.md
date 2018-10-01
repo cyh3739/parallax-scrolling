@@ -1,6 +1,6 @@
 
 # Parallax Scrolling
-
+\# mobile devices support
 ### License
 MIT license - http://opensource.org/licenses/MIT
 
