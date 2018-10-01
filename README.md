@@ -4,7 +4,7 @@
 ### License
 MIT license - http://opensource.org/licenses/MIT
 
-
+![parallax](./parallax.png)
 ### Set up
 
 ```html
