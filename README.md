@@ -18,7 +18,7 @@ MIT license - http://opensource.org/licenses/MIT
 	$(document).ready(function(){
 	
 	   $('.parallax').parallax({
-		speed:300,
+		speed:350,
 		pages:true
 	   });
 	
